@@ -4,12 +4,13 @@ import logo from "../assets/logo.svg"
 import Like from './Like'
 
 interface Props{
-    outfit:Outfit
+    outfit:Outfit,
+    onClick:()=>void
 }
 
-const GameCard = ({outfit}:Props) => {
+const GameCard = ({outfit,onClick}:Props) => {
   return (
-    <Card borderRadius={10}>
+    <Card borderRadius={10} width='300px'>
         <CardBody>
         <Image src={logo} boxSize="150px" m={2}/>
             <Heading fontSize='2xl'>{outfit.title}</Heading>
@@ -21,7 +22,7 @@ const GameCard = ({outfit}:Props) => {
         <Divider />
         <CardFooter>
           <ButtonGroup spacing='2'>
-            <Button variant='solid' colorScheme='blue'>
+            <Button variant='solid' colorScheme='blue' onClick={onClick}>
               افزودن به سبد خرید
             </Button>
             <Button variant='ghost' colorScheme='blue'>
